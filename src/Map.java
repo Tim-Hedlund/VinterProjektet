@@ -1,5 +1,20 @@
 public class Map {
-    int[][] map;
+    private int[][] map;
+
+    private void printMap(int[][] map) {
+
+        int width = map.length;
+        int height = map[0].length;
+
+        for (int i = 0; i < width; i++) {
+            System.out.println();
+            for (int j = 0; j < height; j++) {
+                System.out.print(map[i][j]);
+            }
+
+        }
+
+    }
 
     public Map(int mapDefaultValue, int height, int width) {
 
@@ -12,8 +27,8 @@ public class Map {
 
         }
 
+        printMap(this.map);
+
     }
-
-
 
 }
