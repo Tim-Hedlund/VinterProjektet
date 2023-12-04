@@ -34,8 +34,6 @@ public class Main {
             start();
             Map map = createMap();
 
-            
-
         }
 
     }
