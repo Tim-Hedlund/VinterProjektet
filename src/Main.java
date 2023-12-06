@@ -18,12 +18,16 @@ public class Main {
         }
     }
 
-    private static Map createMap() {
+    private static Game StartGame() {
         int mapHeight = 20;
         int mapWidth = 10;
         int mapDefaultValue = 0;
 
-        return new Map(mapDefaultValue, mapHeight, mapWidth);
+        Map map = new Map(mapDefaultValue, mapHeight, mapWidth);
+
+
+
+        return new Game(map);
 
     }
 
@@ -32,7 +36,8 @@ public class Main {
 
         while (true) {
             start();
-            Map map = createMap();
+            Game game = StartGame();
+
 
         }
 

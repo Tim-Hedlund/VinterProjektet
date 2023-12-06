@@ -39,6 +39,7 @@ public class Map {
             }
         }
 
+        //Test values
         changeValue(0, 0, 1);
         changeValue(1, 2, 2);
         changeValue(2, 4, 3);
