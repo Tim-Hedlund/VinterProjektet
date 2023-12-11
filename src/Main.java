@@ -26,7 +26,6 @@ public class Main {
         Map map = new Map(mapDefaultValue, mapHeight, mapWidth);
 
 
-
         return new Game(map);
 
     }
@@ -37,6 +36,8 @@ public class Main {
         while (true) {
             start();
             Game game = StartGame();
+            game.startGame();
+
 
 
         }

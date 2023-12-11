@@ -1,4 +1,5 @@
 public class Map {
+
     private int[][] map;
 
     private void changeValue(int x, int y, int value) {
@@ -47,4 +48,29 @@ public class Map {
 
         printMap();
     }
+
+    public int getHeight() {
+
+        return this.map.length;
+
+    }
+
+    public int getWidth() {
+
+        return this.map[0].length;
+
+    }
+
+    public int getValueAt(int x, int y) {
+
+        if (this.map[0].length > x) {
+            if (this.map.length > y) {
+                return this.map[y][x];
+            }
+        }
+
+        return(-1);
+
+    }
+
 }
