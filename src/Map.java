@@ -21,15 +21,19 @@ public class Map {
         int width = this.map[0].length;
 
         for (int i = 0; i < height; i++) {
-            System.out.println();
             for (int j = 0; j < width; j++) {
-                System.out.print(this.map[i][j]);
-
+                int value = this.map[i][j];
+                if (value == 0) {
+                    System.out.print("_"); // Display an underscore for empty spaces
+                } else {
+                    System.out.print(value);
+                }
+                System.out.print(" ");
             }
-
+            System.out.println(); // Move to the next line after each row
         }
-
     }
+
 
     public Map(int mapDefaultValue, int height, int width) {
         this.map = new int[height][width];
@@ -44,20 +48,20 @@ public class Map {
         changeValue(0, 0, 1);
         changeValue(1, 2, 2);
         changeValue(2, 4, 3);
-        changeValue(-1, -1 , -1);
+        changeValue(9, 9, 4);
 
         printMap();
     }
 
     public int getHeight() {
 
-        return this.map.length;
+        return this.map[0].length;
 
     }
 
     public int getWidth() {
 
-        return this.map[0].length;
+        return this.map.length;
 
     }
 

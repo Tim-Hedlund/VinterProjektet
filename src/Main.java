@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
@@ -18,7 +19,7 @@ public class Main {
         }
     }
 
-    private static Game StartGame() {
+    private static Game startGame() {
         int mapHeight = 20;
         int mapWidth = 10;
         int mapDefaultValue = 0;
@@ -33,14 +34,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        while (true) {
-            start();
-            Game game = StartGame();
-            game.startGame();
+        SwingUtilities.invokeLater(() -> {
+            Game game = startGame();
+
+            //while (true) {
+                start();
+                game.startGame();
+                game.setVisible(true);
 
 
+            //}
 
-        }
+        });
 
     }
 
