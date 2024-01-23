@@ -24,13 +24,13 @@ public class Map {
             for (int j = 0; j < width; j++) {
                 int value = this.map[i][j];
                 if (value == 0) {
-                    System.out.print("_"); // Display an underscore for empty spaces
+                    System.out.print("_");
                 } else {
                     System.out.print(value);
                 }
                 System.out.print(" ");
             }
-            System.out.println(); // Move to the next line after each row
+            System.out.println();
         }
     }
 
@@ -48,18 +48,26 @@ public class Map {
         changeValue(0, 0, 1);
         changeValue(1, 2, 2);
         changeValue(2, 4, 3);
-        changeValue(9, 9, 4);
+        changeValue(3, 4, 3);
+        changeValue(4, 4, 3);
+        changeValue(5, 4, 3);
+        changeValue(5, 8, 3);
+        changeValue(6, 4, 3);
+        changeValue(7, 4, 3);
+        changeValue(8, 4, 3);
+        changeValue(9, 19, 5);
+
 
         printMap();
     }
 
-    public int getHeight() {
+    public int getWidth() {
 
         return this.map[0].length;
 
     }
 
-    public int getWidth() {
+    public int getHeight() {
 
         return this.map.length;
 
@@ -73,8 +81,26 @@ public class Map {
             }
         }
 
+
         return(-1);
 
     }
 
+    public void moveDown(int x, int y) {
+
+        int value = this.getValueAt(x, y);
+        this.changeValue(x, y, 0);
+        this.changeValue(x, y+1, value);
+
+    }
+
+    public void clearRow(int currentY) {
+
+        for (int i = 0; i < this.getHeight(); i++) {
+
+            this.changeValue(i, currentY, 0);
+
+        }
+
+    }
 }

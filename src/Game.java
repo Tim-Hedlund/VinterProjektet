@@ -17,7 +17,7 @@ public class Game extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Tetris");
 
-        setSize(313, 638); //
+        setSize(314, 638); //
         setLocationRelativeTo(null);
 
         JPanel panel = new JPanel() {
@@ -35,7 +35,7 @@ public class Game extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Call the method to update the game state (e.g., move tetrominos)
-                // updateGame();
+                updateGame();
 
                 panel.repaint();
             }
@@ -44,9 +44,8 @@ public class Game extends JFrame {
     }
 
     private void drawGrid(Graphics g) {
-        for (int i = 0; i < this.map.getHeight(); i++) {
-            for (int j = 0; j < this.map.getWidth(); j++) {
-                // Assuming you have a method getColorAt(i, j) in your Map class
+        for (int i = 0; i < this.map.getWidth(); i++) {
+            for (int j = 0; j < this.map.getHeight(); j++) {
                 int colorValue = this.map.getValueAt(i, j);
                 drawCube(g, i, j, colorValue);
             }
@@ -78,5 +77,82 @@ public class Game extends JFrame {
         g.drawRect(row * unitSize, col * unitSize, unitSize, unitSize);
     }
 
-    // Add methods to update the game state (e.g., move tetrominos) if needed
+    private void updateGame() {
+        applyGravity();
+        checkRows();
+    }
+
+    private void checkRows() {
+
+        for (int i = 0; i < this.map.getWidth(); i++) {
+
+            int currentY = this.map.getHeight() - i;
+
+            if (isRowFull(currentY)) {
+
+                this.map.clearRow(currentY);
+
+            }
+
+        }
+
+    }
+
+    private boolean isRowFull(int currentY) {
+
+        int x = 0;
+        for (int i = 0; i < this.map.getHeight(); i++) {
+
+            if (this.map.getValueAt(x, currentY) == 0) {
+                break;
+            }
+            x += 1;
+
+        }
+
+        System.out.println(x);
+
+        if (x == this.map.getWidth()) {
+            System.out.println("i live");
+            return true;
+        }
+        return false;
+
+    }
+
+    private void applyGravity() {
+
+        for (int y = 0; y < this.map.getHeight(); y++) {
+            for (int x = 0; x < this.map.getWidth(); x++) {
+
+                if (!hasLowerNeighbor(x, y)) {
+
+                    this.map.moveDown(x, y);
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+
+
+    private boolean hasLowerNeighbor(int x, int y) {
+
+        if (y == 19) {
+            return true;
+        } else if (this.map.getValueAt(x, y+1) != 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+
+    }
+
+
+
 }
