@@ -35,15 +35,11 @@ public class Main {
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(() -> {
+
             Game game = startGame();
-
-            //while (true) {
-                start();
-                game.startGame();
-                game.setVisible(true);
-
-
-            //}
+            start();
+            game.startGame();
+            game.setVisible(true);
 
         });
 

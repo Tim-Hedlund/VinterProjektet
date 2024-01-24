@@ -96,7 +96,7 @@ public class Map {
 
     public void clearRow(int currentY) {
 
-        for (int i = 0; i < this.getHeight(); i++) {
+        for (int i = 0; i < this.getWidth(); i++) {
 
             this.changeValue(i, currentY, 0);
 
