@@ -1,7 +1,9 @@
 public class LTetromino extends Tetromino {
 
     public LTetromino() {
-        this.rotations = new int[][][]
+
+        super.x = 3;
+        super.rotations = new int[][][]
             {
                 {
                     {0, 0, 1},

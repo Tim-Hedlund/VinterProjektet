@@ -1,12 +1,15 @@
 public class ZTetromino extends Tetromino {
 
     public ZTetromino() {
-        this.rotations = new int[][][]
+
+        super.x = 3;
+        super.rotations = new int[][][]
             {
                 {
                     {0, 1, 0},
                     {1, 1, 1},
                     {0, 0, 0},
+
                 },
                 {
                     {0, 1, 0},
@@ -24,6 +27,5 @@ public class ZTetromino extends Tetromino {
                     {0, 1, 0},
                 }
             };
-
     }
 }

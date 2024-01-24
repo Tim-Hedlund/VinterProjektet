@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96727a76-6dd3-4a2e-bf18-da3d942b5dd4" name="Changes" comment="7">
+    <list default="true" id="96727a76-6dd3-4a2e-bf18-da3d942b5dd4" name="Changes" comment="8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ITetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ITetromino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JTetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JTetromino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LTetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LTetromino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OTetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OTetromino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/STetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/STetromino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TTetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TTetromino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tetromino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ZTetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ZTetromino.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +79,8 @@
       <workItem from="1704876899575" duration="9896000" />
       <workItem from="1705304605950" duration="2804000" />
       <workItem from="1705307657008" duration="639000" />
-      <workItem from="1705908594980" duration="15001000" />
+      <workItem from="1705908594980" duration="23830000" />
+      <workItem from="1706119236093" duration="9328000" />
     </task>
     <task id="LOCAL-00001" summary="First">
       <created>1701249129173</created>
@@ -130,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705994256438</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="8">
+      <created>1706090825423</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706090825423</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +152,7 @@
     <MESSAGE value="Fifth" />
     <MESSAGE value="6" />
     <MESSAGE value="7" />
-    <option name="LAST_COMMIT_MESSAGE" value="7" />
+    <MESSAGE value="8" />
+    <option name="LAST_COMMIT_MESSAGE" value="8" />
   </component>
 </project>

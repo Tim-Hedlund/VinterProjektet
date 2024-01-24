@@ -1,7 +1,7 @@
 public class OTetromino extends Tetromino {
 
     public OTetromino() {
-        this.rotations = new int[][][]
+        super.rotations = new int[][][]
             {
                 {
                     {1, 1},

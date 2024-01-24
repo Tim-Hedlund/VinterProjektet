@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.random.*;
 
 public class Game extends JFrame {
 
@@ -18,14 +17,15 @@ public class Game extends JFrame {
         this.map = map;
     }
 
-    void startGame() {
+    void startGame() throws InstantiationException, IllegalAccessException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Tetris");
 
         setSize(314, 638); //
         setLocationRelativeTo(null);
 
-        ArrayList<Tetromino> TetrominoOrder = createTetrominos();
+
+        ArrayList<Tetromino> tetrominoOrder = createTetrominos();
 
         this.state = 1; //1 = running
 
@@ -45,7 +45,7 @@ public class Game extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Call the method to update the game state (e.g., move tetrominos)
 
-                updateGame();
+                updateGame(tetrominoOrder);
                 currentFrame += 1;
 
                 panel.repaint();
@@ -55,8 +55,19 @@ public class Game extends JFrame {
     }
 
     private ArrayList<Tetromino> createTetrominos() {
+        int arrayLength = 3; //sets arrayLength long enough to show next pieces.
+        Tetromino tetromino = new Tetromino();
+
+        ArrayList<Tetromino> returnTetrominos = new ArrayList<>();
 
 
+        for (int i = 0; i < arrayLength; i++) {
+
+            returnTetrominos.add(tetromino.returnRandomTetromino());
+
+        }
+
+        return returnTetrominos;
 
     }
 
@@ -96,39 +107,66 @@ public class Game extends JFrame {
         g.drawRect(row * unitSize, col * unitSize, unitSize, unitSize);
     }
 
-    private void updateGame() {
+    private void updateGame(ArrayList<Tetromino> tetrominoOrder) {
 
         if (this.state == 1) {
+            
+            removeTetromino(tetrominoOrder);
             applyGravity();
             checkRows();
+            moveTetromino(tetrominoOrder);
+            
         } else if (this.state == 2) {
+            
+            playClearAnimation();
 
-            int animationLength = 20; //gör delbar av animationFrameCount
-            //playClearAnimation();
+        }
 
-            if (this.currentFrame - this.lastClearFrame > animationLength) {
+    }
 
-                this.state = 1;
-                checkRows();
+    private void removeTetromino(ArrayList<Tetromino> tetrominoOrder) {
 
+        Tetromino currentTetromino = tetrominoOrder.get(0);
+
+        int[][] occupiedPositions = currentTetromino.returnOccupiedPositions();
+
+
+
+    }
+
+    private void moveTetromino(ArrayList<Tetromino> tetrominoOrder) {
+        
+        
+        
+    }
+
+    private void playClearAnimation() {
+
+        int animationLength = 20; //gör delbar av animationFrameCount
+        //playClearAnimation();
+
+        if (this.currentFrame - this.lastClearFrame > animationLength) {
+
+            this.state = 1;
+            checkRows();
+
+        }
+        
+    }
+
+    /*
+        private void playClearAnimation(int y) {
+            int animationFrameNum = this.currentFrame - this.lastClearFrame;
+            int animationFrameTicks = 2;
+    
+            if (animationFrameNum % animationFrameTicks == 0) {
+    
+    
+    
             }
-
+    
         }
-
-    }
-/*
-    private void playClearAnimation(int y) {
-        int animationFrameNum = this.currentFrame - this.lastClearFrame;
-        int animationFrameTicks = 2;
-
-        if (animationFrameNum % animationFrameTicks == 0) {
-
-
-
-        }
-
-    }
-*/
+    */
     private void checkRows() {
 
         for (int i = 0; i < this.map.getHeight(); i++) {
@@ -196,6 +234,12 @@ public class Game extends JFrame {
             return false;
         }
 
+
+    }
+
+    public Map getMap() {
+
+        return this.map;
 
     }
 

@@ -26,7 +26,6 @@ public class Main {
 
         Map map = new Map(mapDefaultValue, mapHeight, mapWidth);
 
-
         return new Game(map);
 
     }
@@ -35,10 +34,14 @@ public class Main {
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(() -> {
-
             Game game = startGame();
-            start();
-            game.startGame();
+
+                start();
+            try {
+                game.startGame();
+            } catch (InstantiationException | IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
             game.setVisible(true);
 
         });

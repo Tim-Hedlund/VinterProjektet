@@ -1,7 +1,7 @@
 public class ITetromino extends Tetromino {
 
     public ITetromino() {
-        this.rotations = new int[][][]
+        super.rotations = new int[][][]
             {
                 {
                     {0, 0, 0, 0},
@@ -28,6 +28,5 @@ public class ITetromino extends Tetromino {
                     {0, 1, 0 ,0}
                 }
             };
-
     }
 }

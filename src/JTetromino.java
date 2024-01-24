@@ -1,7 +1,9 @@
 public class JTetromino extends Tetromino {
 
     public JTetromino() {
-        this.rotations = new int[][][]
+
+        super.x = 3;
+        super.rotations = new int[][][]
             {
                 {
                     {1, 0, 0},
