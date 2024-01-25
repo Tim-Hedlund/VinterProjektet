@@ -12,6 +12,7 @@ public class Game extends JFrame {
     private int state;
     private int currentFrame = 0;
     private int lastClearFrame = 0;
+    private int dropSpeed = 1;
 
     public Game(Map map) {
         this.map = map;
@@ -114,7 +115,7 @@ public class Game extends JFrame {
             removeTetromino(tetrominoOrder);
             applyGravity();
             checkRows();
-            moveTetromino(tetrominoOrder);
+            moveTetromino(tetrominoOrder, dropSpeed);
             
         } else if (this.state == 2) {
             
@@ -128,22 +129,42 @@ public class Game extends JFrame {
 
         Tetromino currentTetromino = tetrominoOrder.get(0);
 
-        int[][] occupiedPositions = currentTetromino.returnOccupiedPositions();
+        int[][] localPositions = currentTetromino.returnOccupiedPositions();
+        int[][] realPositions = fixPositions(localPositions, currentTetromino);
 
-
+        this.map.setValues(realPositions, 0);
 
     }
 
-    private void moveTetromino(ArrayList<Tetromino> tetrominoOrder) {
-        
-        
+    private int[][] fixPositions(int[][] localPositions, Tetromino currentTetromino) {
+
+        int tetrominoY = currentTetromino.y;
+        int tetrominoX = currentTetromino.x;
+
+        for (int i = 0; i < localPositions.length; i++) {
+
+            localPositions[i][0] += tetrominoY;
+            localPositions[i][1] += tetrominoX;
+
+        }
+
+        return localPositions;
+
+    }
+
+    private void moveTetromino(ArrayList<Tetromino> tetrominoOrder, int dropAmount) {
+
+        Tetromino currentTetromino = tetrominoOrder.get(0);
+
+        for (int i = 0; i < dropAmount
+
+        currentTetromino.y -= dropAmount;
         
     }
 
     private void playClearAnimation() {
 
         int animationLength = 20; //gör delbar av animationFrameCount
-        //playClearAnimation();
 
         if (this.currentFrame - this.lastClearFrame > animationLength) {
 
@@ -234,15 +255,6 @@ public class Game extends JFrame {
             return false;
         }
 
-
     }
-
-    public Map getMap() {
-
-        return this.map;
-
-    }
-
-
 
 }

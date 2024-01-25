@@ -44,27 +44,19 @@ public class Tetromino {
                     currentPositions[4-tetrominosLeft][1] = x;
 
                     tetrominosLeft--;
-
                 }
 
                 if (tetrominosLeft == 0) {
-
                     break;
-
                 }
-
             }
 
             if (tetrominosLeft == 0) {
-
                 break;
-
             }
-
         }
 
         return currentPositions;
-
     }
 
     private boolean isOccupied(int x, int y, int[][] currentRotation) {

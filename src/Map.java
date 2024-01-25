@@ -103,4 +103,17 @@ public class Map {
         }
 
     }
+
+    public void setValues(int[][] positions, int value) {
+
+        for (int i = 0; i < positions.length; i++) {
+
+            int x = positions[i][1];
+            int y = positions[i][0];
+            changeValue(x, y, value);
+
+        }
+
+    }
+
 }
