@@ -8,7 +8,8 @@ public class Tetromino {
     int y = 0;
     int[][][] rotations; //Alla håll en tetromino kan befinna sig i, 4 per tetromino, 1 betyder att den finns och 0 betyder att den inte.
     Class<? extends Tetromino>[] tetrominoClasses = new Class[] {ITetromino.class, JTetromino.class, LTetromino.class, OTetromino.class, STetromino.class, TTetromino.class, ZTetromino.class};
-    Game game;
+    int color;
+
     public Tetromino() {
 
     }
@@ -40,8 +41,8 @@ public class Tetromino {
 
                 if (isOccupied(x, y, currentRotation)) {
 
-                    currentPositions[4-tetrominosLeft][0] = y;
-                    currentPositions[4-tetrominosLeft][1] = x;
+                    currentPositions[4-tetrominosLeft][0] = y + this.y;
+                    currentPositions[4-tetrominosLeft][1] = x + this.x;
 
                     tetrominosLeft--;
                 }
@@ -71,4 +72,7 @@ public class Tetromino {
 
     }
 
+    public int getColor() {
+        return this.color;
+    }
 }

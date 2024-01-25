@@ -1,6 +1,8 @@
 public class ITetromino extends Tetromino {
 
     public ITetromino() {
+        super.color = 3;
+        super.x = 3;
         super.rotations = new int[][][]
             {
                 {

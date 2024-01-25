@@ -129,13 +129,12 @@ public class Game extends JFrame {
 
         Tetromino currentTetromino = tetrominoOrder.get(0);
 
-        int[][] localPositions = currentTetromino.returnOccupiedPositions();
-        int[][] realPositions = fixPositions(localPositions, currentTetromino);
+        int[][] tetrominoPositions = currentTetromino.returnOccupiedPositions();
 
-        this.map.setValues(realPositions, 0);
+        this.map.setValues(tetrominoPositions, 0);
 
     }
-
+/*
     private int[][] fixPositions(int[][] localPositions, Tetromino currentTetromino) {
 
         int tetrominoY = currentTetromino.y;
@@ -151,14 +150,29 @@ public class Game extends JFrame {
         return localPositions;
 
     }
-
+*/
     private void moveTetromino(ArrayList<Tetromino> tetrominoOrder, int dropAmount) {
 
         Tetromino currentTetromino = tetrominoOrder.get(0);
 
-        for (int i = 0; i < dropAmount
+        for (int i = 0; i < dropAmount; i++) {
 
-        currentTetromino.y -= dropAmount;
+            currentTetromino.y --;
+
+            if (this.map.hasCollided(currentTetromino)) {
+
+                currentTetromino.y ++;
+
+                this.map.setValues(currentTetromino.returnOccupiedPositions(), currentTetromino.getColor());
+
+                tetrominoOrder.remove(0);
+                tetrominoOrder.add(currentTetromino.returnRandomTetromino());
+
+            }
+
+        }
+
+
         
     }
 

@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96727a76-6dd3-4a2e-bf18-da3d942b5dd4" name="Changes" comment="9">
+    <list default="true" id="96727a76-6dd3-4a2e-bf18-da3d942b5dd4" name="Changes" comment="10">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ITetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ITetromino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JTetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JTetromino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LTetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LTetromino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OTetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OTetromino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tetromino.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +78,7 @@
       <workItem from="1705307657008" duration="639000" />
       <workItem from="1705908594980" duration="23830000" />
       <workItem from="1706119236093" duration="9379000" />
-      <workItem from="1706172625788" duration="4735000" />
+      <workItem from="1706172625788" duration="6609000" />
     </task>
     <task id="LOCAL-00001" summary="First">
       <created>1701249129173</created>
@@ -139,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706129161994</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="10">
+      <created>1706177425383</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706177425383</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +166,7 @@
     <MESSAGE value="7" />
     <MESSAGE value="8" />
     <MESSAGE value="9" />
-    <option name="LAST_COMMIT_MESSAGE" value="9" />
+    <MESSAGE value="10" />
+    <option name="LAST_COMMIT_MESSAGE" value="10" />
   </component>
 </project>

@@ -2,6 +2,7 @@ public class ZTetromino extends Tetromino {
 
     public ZTetromino() {
 
+        super.color = 5;
         super.x = 3;
         super.rotations = new int[][][]
             {

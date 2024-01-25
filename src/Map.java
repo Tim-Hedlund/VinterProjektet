@@ -116,4 +116,24 @@ public class Map {
 
     }
 
+    public boolean hasCollided(Tetromino currentTetromino) {
+
+        int[][] tetrominoPositions = currentTetromino.returnOccupiedPositions();
+
+        for (int i = 0; i < tetrominoPositions.length; i++) {
+
+            int currentY = tetrominoPositions[i][0];
+            int currentX = tetrominoPositions[i][1];
+
+            if (getValueAt(currentX, currentY) != 0) {
+
+                return true;
+
+            }
+
+        }
+
+        return false;
+
+    }
 }

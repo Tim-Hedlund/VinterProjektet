@@ -2,6 +2,7 @@ public class LTetromino extends Tetromino {
 
     public LTetromino() {
 
+        super.color = 7;
         super.x = 3;
         super.rotations = new int[][][]
             {
