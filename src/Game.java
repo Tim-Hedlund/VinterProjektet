@@ -7,12 +7,10 @@ import java.util.ArrayList;
 public class Game extends JFrame {
 
     private static final int unitSize = 30;
-    private Timer timer;
-    private Map map;
+    private final Map map;
     private int state;
     private int currentFrame = 0;
     private int lastClearFrame = 0;
-    private int dropSpeed = 1;
 
     public Game(Map map) {
         this.map = map;
@@ -22,7 +20,7 @@ public class Game extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Tetris");
 
-        setSize(314, 638); //
+        setSize(314, 638);
         setLocationRelativeTo(null);
 
 
@@ -40,11 +38,9 @@ public class Game extends JFrame {
 
         add(panel);
 
-        // 16 milliseconds = (60 times per second)
-        timer = new Timer(16, new ActionListener() {
+        Timer timer = new Timer(17, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Call the method to update the game state (e.g., move tetrominos)
 
                 updateGame(tetrominoOrder);
                 currentFrame += 1;
@@ -75,7 +71,7 @@ public class Game extends JFrame {
 
     private void drawGrid(Graphics g) {
         for (int i = 0; i < this.map.getWidth(); i++) {
-            for (int j = 0; j < this.map.getHeight(); j++) {
+            for (int j = 2; j < this.map.getHeight(); j++) {
                 int colorValue = this.map.getValueAt(i, j);
                 drawCube(g, i, j, colorValue);
             }
@@ -92,7 +88,7 @@ public class Game extends JFrame {
             case 5 -> { return Color.RED; }
             case 6 -> { return Color.YELLOW; }
             case 7 -> { return Color.ORANGE; }
-            case 8 -> { return new Color(212, 175, 55); }//Gold
+            case 8 -> { return new Color(201, 161, 40); }//Gold
         }
 
         System.out.println("Error, null color value");
@@ -103,9 +99,9 @@ public class Game extends JFrame {
         Color color = getColor(colorValue);
 
         g.setColor(color);
-        g.fillRect(row * unitSize, col * unitSize, unitSize, unitSize);
+        g.fillRect(row * unitSize, (col - 2) * unitSize, unitSize, unitSize);
         g.setColor(Color.BLACK);
-        g.drawRect(row * unitSize, col * unitSize, unitSize, unitSize);
+        g.drawRect(row * unitSize, (col - 2) * unitSize, unitSize, unitSize);
     }
 
     private void updateGame(ArrayList<Tetromino> tetrominoOrder) {
@@ -115,6 +111,8 @@ public class Game extends JFrame {
             removeTetromino(tetrominoOrder);
             //applyGravity();
             checkRows();
+
+            int dropSpeed = 4; // frames per unit
             moveTetromino(tetrominoOrder, dropSpeed);
             
         } else if (this.state == 2) {
@@ -134,6 +132,7 @@ public class Game extends JFrame {
         this.map.setValues(tetrominoPositions, 0);
 
     }
+
 /*
     private int[][] fixPositions(int[][] localPositions, Tetromino currentTetromino) {
 
@@ -151,11 +150,17 @@ public class Game extends JFrame {
 
     }
 */
+
     private void moveTetromino(ArrayList<Tetromino> tetrominoOrder, int dropAmount) {
 
         Tetromino currentTetromino = tetrominoOrder.get(0);
+        this.map.setValues(currentTetromino.returnOccupiedPositions(), currentTetromino.getColor());
 
-        for (int i = 0; i < dropAmount; i++) {
+        boolean shouldDrop = (currentFrame % dropAmount == 0);
+
+        if (shouldDrop) {
+
+            this.map.setValues(currentTetromino.returnOccupiedPositions(), 0);
 
             currentTetromino.y ++;
 
@@ -167,6 +172,10 @@ public class Game extends JFrame {
 
                 tetrominoOrder.remove(0);
                 tetrominoOrder.add(currentTetromino.returnRandomTetromino());
+
+            } else {
+
+                this.map.setValues(currentTetromino.returnOccupiedPositions(), currentTetromino.getColor());
 
             }
 

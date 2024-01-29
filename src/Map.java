@@ -36,16 +36,13 @@ public class Map {
 
 
     public Map(int mapDefaultValue, int height, int width) {
-        this.map = new int[height][width];
+        this.map = new int[height + 2][width]; //+2 for spawn room
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 this.map[i][j] = mapDefaultValue;
             }
         }
-
-        //Test values
-
 
         printMap();
     }

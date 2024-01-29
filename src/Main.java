@@ -22,7 +22,7 @@ public class Main {
     private static Game startGame() {
         int mapHeight = 20;
         int mapWidth = 10;
-        int mapDefaultValue = 1;
+        int mapDefaultValue = 0;
 
         Map map = new Map(mapDefaultValue, mapHeight, mapWidth);
 
@@ -35,7 +35,6 @@ public class Main {
 
         SwingUtilities.invokeLater(() -> {
             Game game = startGame();
-
                 start();
             try {
                 game.startGame();

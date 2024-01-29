@@ -75,4 +75,9 @@ public class Tetromino {
     public int getColor() {
         return this.color;
     }
+
+
+
+
+
 }
