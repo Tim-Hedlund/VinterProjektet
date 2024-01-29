@@ -113,7 +113,7 @@ public class Game extends JFrame {
         if (this.state == 1) {
             
             removeTetromino(tetrominoOrder);
-            applyGravity();
+            //applyGravity();
             checkRows();
             moveTetromino(tetrominoOrder, dropSpeed);
             
@@ -157,11 +157,11 @@ public class Game extends JFrame {
 
         for (int i = 0; i < dropAmount; i++) {
 
-            currentTetromino.y --;
+            currentTetromino.y ++;
 
             if (this.map.hasCollided(currentTetromino)) {
 
-                currentTetromino.y ++;
+                currentTetromino.y --;
 
                 this.map.setValues(currentTetromino.returnOccupiedPositions(), currentTetromino.getColor());
 
@@ -171,8 +171,6 @@ public class Game extends JFrame {
             }
 
         }
-
-
         
     }
 

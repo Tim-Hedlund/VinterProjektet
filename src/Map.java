@@ -45,17 +45,6 @@ public class Map {
         }
 
         //Test values
-        changeValue(0, 0, 1);
-        changeValue(1, 2, 2);
-        changeValue(2, 4, 3);
-        changeValue(3, 4, 3);
-        changeValue(4, 4, 3);
-        changeValue(5, 4, 3);
-        changeValue(5, 8, 3);
-        changeValue(6, 4, 3);
-        changeValue(7, 4, 3);
-        changeValue(8, 4, 3);
-        changeValue(9, 19, 5);
 
 
         printMap();
@@ -119,6 +108,8 @@ public class Map {
     public boolean hasCollided(Tetromino currentTetromino) {
 
         int[][] tetrominoPositions = currentTetromino.returnOccupiedPositions();
+
+
 
         for (int i = 0; i < tetrominoPositions.length; i++) {
 
